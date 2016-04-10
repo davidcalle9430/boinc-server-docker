@@ -28,7 +28,7 @@ ENV USER=root PROJHOME=/root/project
 
 # make project
 RUN cd /root/boinc/tools \
-    && ./make_project --url_base http://www.boincserver.com \
+    && ./make_project --url_base http://159.203.22.130 \
                       --project_host boincserver \
                       --db_host mysql \
                       --db_user root \
@@ -48,7 +48,7 @@ COPY db_dump_spec.xml $PROJHOME/
 COPY html $PROJHOME/html
 COPY bin $PROJHOME/bin
 
-# finish up 
+# finish up
 WORKDIR $PROJHOME
 COPY postbuild.py /root/
 CMD /root/postbuild.py
